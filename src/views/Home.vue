@@ -1,23 +1,18 @@
 <template>
   <div class="home">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 pt-3">
-          
-        </div>
-      </div>
-    </div>
+    <h4>Student Data List</h4>
+    <listdata></listdata>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import listdata from '@/components/ListData.vue'
 
 export default {
   name: 'home',
   components: {
-    HelloWorld
+    listdata
   }
 }
 </script>

@@ -5,10 +5,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-
+    biodata:{},
   },
   mutations: {
-
+    setBiodata(state,data){
+      state.biodata = data
+    }
   },
   actions: {
 

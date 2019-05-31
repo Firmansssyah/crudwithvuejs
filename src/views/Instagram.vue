@@ -1,28 +1,19 @@
 <template>
-  <div class="about">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 pt-3">
-          <img :src="biodata.profile_picture" class="img-thumbnail rounded-circle">
-          <p></p>
-          @{{biodata.username}}
-          <br/>
-          <div class="row pt-5">
-            <div class="col-lg-4">
-              <img :src="biodata.profile_picture" class="box">
-              </img>
-            </div>
-            <div class="col-lg-4">
-              <img :src="biodata.profile_picture" class="box">
-              </img>
-            </div>
-            <div class="col-lg-4">
-              <img :src="biodata.profile_picture" class="box">
-              </img>
-            </div>
-          </div>
-        </div>
+  <div>
+    <h4>Instagram</h4>
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" :src="biodata.profile_picture">
+      <div class="card-body">
+        <h5 class="card-title">@{{biodata.username}}</h5>
+        <p class="card-text">{{biodata.bio}}</p>
       </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          Post : {{biodata.counts.media}} <br/>
+          Followers : {{biodata.counts.followed_by}} <br/>
+          Following : {{biodata.counts.follows}}
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -46,15 +37,12 @@ export default {
     axios.get(this.curl)
     .then(({data}) => {
       this.biodata = data.data
+      this.$store.commit('setBiodata',data.data)
     })
   }
 }
 </script>
 <style lang="scss">
-.box{
-  border-radius: 4px;
-  box-shadow: 0px 0px 4px gray;
-  height: 300px;
-}
+
 </style>
 
